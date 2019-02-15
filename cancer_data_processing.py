@@ -62,8 +62,16 @@ def select_columns(my_table, col_indices):
     Output: Nested list corresponding to sub-table formed by
     columns in col_indices
     """
+    nested_list = []
+    list1 =[]
+    for item in range(len(my_table)):
+        for index in col_indices:
+            list1.append(my_table[item][index])
 
-    return []
+        nested_list.append(list(list1))
+        list1 = []
+
+    return nested_list
 
 
 def sort_by_column(my_table, col_idx):
@@ -74,7 +82,7 @@ def sort_by_column(my_table, col_idx):
     """
 
     pass
-    
+
 def test_part2_code():
     """
     Run examples that test the functions for part 2
@@ -90,19 +98,19 @@ def test_part2_code():
     print()
 
     # Simple test for column sorting function
-    sort_by_column(test_table, 3)
-    print_table(test_table)
-    print()
+    #sort_by_column(test_table, 3)
+    #print_table(test_table)
+    #print()
 
     # Read cancer-risk data set, select columns A, B, C, E, and L, then sort by column E in descending order
-    cancer_risk_table = read_csv_file("cancer_risk05_v4_county.csv")
-    col_indices = [0, 1, 2, 4, 11]
-    trimmed_risk_table = select_columns(cancer_risk_table, col_indices)
-    sort_by_column(trimmed_risk_table, 4)
-    write_csv_file(trimmed_risk_table, "cancer_risk_trimmed.csv")
+    #cancer_risk_table = read_csv_file("cancer_risk05_v4_county.csv")
+    #col_indices = [0, 1, 2, 4, 11]
+    #trimmed_risk_table = select_columns(cancer_risk_table, col_indices)
+    #sort_by_column(trimmed_risk_table, 4)
+    #write_csv_file(trimmed_risk_table, "cancer_risk_trimmed.csv")
 
     # Load our file "cancer_risk_trimmed_solution.csv" and compare with your solution
-    trimmed_risk_solution = read_csv_file("cancer_risk_trimmed_solution.csv")
+    #trimmed_risk_solution = read_csv_file("cancer_risk_trimmed_solution.csv")
 
 
 test_part2_code()
@@ -144,4 +152,4 @@ def test_part1_code():
 
 
 
-test_part1_code()
+#test_part1_code()
